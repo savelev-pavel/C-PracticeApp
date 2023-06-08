@@ -1,5 +1,6 @@
-﻿Company rusLab = new();
-rusLab.print_info();
+﻿Company testComp = new Company{ company_long_name = "ООО \"Русская рулетка\"", company_adress = "Россия, Санкт-Петербург, Невский пр, д.1", company_inn = "12312345",
+    company_director = { fullname = "Иванов Петр Сергеевич", can_sign_docs = true } };
+testComp.print_info();
 
 
 class Company
@@ -22,10 +23,10 @@ class Company
     public void print_info()
     {
         Console.WriteLine($"Организация: {this.company_long_name}\n" +
-            $"Адрес: {this.company_short_name}\n" +
+            $"Адрес: {this.company_adress}\n" +
             $"ИНН: {this.company_inn}\n" +
             $"Руководитель: {this.company_director.fullname} " +
-            $"{this.company_director.can_sign_docs switch { true => "имеет право подписи", false => "не имеет права подписи" }}");
+            $"{this.company_director.can_sign_docs switch { true => " - имеет право подписи", false => " - не имеет права подписи" }}");
     }
 }
 
