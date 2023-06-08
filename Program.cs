@@ -1,18 +1,27 @@
-﻿Company rusLab = new Company();
+﻿Company rusLab = new();
 rusLab.print_info();
 
 
 class Company
 {
-    public string company_long_name = "неизвестно";
-    public string company_short_name = "неизвестно";
-    public string company_adress = "неизвестно";
-    public string company_inn = "неизвестно";
+    public string company_long_name;
+    public string company_short_name;
+    public string company_adress;
+    public string company_inn;
     public CompanyPerson company_director;
-    public CompanyPerson company_accountant;
+
+    public Company()
+    {
+    this.company_long_name = "неизвестно";
+    this.company_short_name = "неизвестно";
+    this.company_adress = "неизвестно";
+    this.company_inn = "неизвестно";
+    company_director = new CompanyPerson();
+    }
+
     public void print_info()
     {
-        Console.WriteLine($"Организация {this.company_long_name}\n" +
+        Console.WriteLine($"Организация: {this.company_long_name}\n" +
             $"Адрес: {this.company_short_name}\n" +
             $"ИНН: {this.company_inn}\n" +
             $"Руководитель: {this.company_director.fullname} " +
@@ -22,7 +31,13 @@ class Company
 
 class CompanyPerson
 {
-    public string position = "неизвестно";
-    public string fullname = "неизвестно";
-    public bool can_sign_docs = false;
+    public string position;
+    public string fullname;
+    public bool can_sign_docs;
+    public CompanyPerson()
+    {
+        position = "неизвестно";
+        fullname = "неизвестно";
+        can_sign_docs = false;
+    }
 }
